@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ONELINK - Transforming ideas into reliable software</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366F1', 
+                        secondary: '#4B5563',
+                        light: '#F9FAFB',
+                        dark: '#1F2937'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.1);
+            }
+            .carousel-item {
+                display: none;
+            }
+            .carousel-item.active {
+                display: block;
+                animation: fadeIn 0.8s ease-in-out;
+            }
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="font-sans bg-light text-dark antialiased">
+    <!-- NAVIGATION -->
+    <header class="fixed w-full top-0 z-50 bg-white/90 backdrop-blur-sm shadow-sm">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-white">
+                        
+                      <img alt="Onelink Logo" fetchpriority="high" width="174" height="40" decoding="async" data-nimg="1" style="color:transparent" src="https://i.ibb.co/8DD8h0gX/logo.jpg">
+                    </div>
+                    <span class="text-xl font-bold text-dark">ONELINK TECH</span>
+                </div>
+
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-secondary hover:text-primary transition-colors font-medium">About Us</a>
+                    <a href="#service" class="text-secondary hover:text-primary transition-colors font-medium">Service</a>
+                    <a href="#projects" class="text-secondary hover:text-primary transition-colors font-medium">Project</a>
+                    <a href="#contact" class="text-secondary hover:text-primary transition-colors font-medium">Contact</a>
+                </nav>
+
+                <button id="menuBtn" class="md:hidden text-dark hover:text-primary transition-colors">
+                    <i class="fa fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobileMenu" class="md:hidden hidden bg-white border-t">
+            <div class="container mx-auto px-4 py-3 space-y-3">
+                <a href="#about" class="block text-secondary hover:text-primary transition-colors font-medium py-2">ABOUT US</a>
+                <a href="#service" class="block text-secondary hover:text-primary transition-colors font-medium py-2">SERVICE</a>
+                <a href="#projects" class="block text-secondary hover:text-primary transition-colors font-medium py-2">PROJECT</a>
+                <a href="#contact" class="block text-secondary hover:text-primary transition-colors font-medium py-2">CONTACT</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- PROJECT PIC -->
+    <section id="home" class="pt-20">
+        <div class="relative">
+            <div class="carousel">
+                <div class="carousel-item active">
+                    <div class="flex flex-col md:flex-row items-center bg-gradient-to-r from-purple-50 to-white py-16 md:py-24">
+                        <div class="md:w-1/2 px-6 md:px-12 mb-8 md:mb-0">
+                            <h1 class="text-[clamp(1.8rem,4vw,3rem)] font-bold leading-tight text-dark mb-4">
+                                Custom Solutions<span class="text-primary"> Real Impact</span>
+                            </h1>
+                            <p class="text-secondary text-lg mb-8 max-w-lg">
+                                Delivering efficient, stable, and innovative digital systems that accelerate business growth.
+                            </p>
+                            
+                        </div>
+                        <div class="md:w-1/2">
+                            <img src="https://i.ibb.co/Mxk5MRng/bugx.jpg" alt="软件开发服务" class="w-full h-auto rounded-lg shadow-xl">
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="flex flex-col md:flex-row items-center bg-gradient-to-r from-purple-50 to-white py-16 md:py-24">
+                        <div class="md:w-1/2 px-6 md:px-12 mb-8 md:mb-0">
+                            <h1 class="text-[clamp(1.8rem,4vw,3rem)] font-bold leading-tight text-dark mb-4">
+                                IoT Intelligence<span class="text-primary"> for Every Industry</span>
+                            </h1>
+                            <p class="text-secondary text-lg mb-8 max-w-lg">
+                                Eliminating data silos with seamless system integration and automated end-to-end workflows.
+                            </p>
+                            
+                        </div>
+                        <div class="md:w-1/2">
+                            <img src="https://i.ibb.co/pvPH9PNn/fish1.jpg" alt="系统集成服务" class="w-full h-auto rounded-lg shadow-xl">
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="flex flex-col md:flex-row items-center bg-gradient-to-r from-purple-50 to-white py-16 md:py-24">
+                        <div class="md:w-1/2 px-6 md:px-12 mb-8 md:mb-0">
+                            <h1 class="text-[clamp(1.8rem,4vw,3rem)] font-bold leading-tight text-dark mb-4">
+                                Dedicated Technical<span class="text-primary"> Consulting Team</span>
+                            </h1>
+                            <p class="text-secondary text-lg mb-8 max-w-lg">
+                                Full-Cycle Technical Expertise From Requirements to Optimization
+                            </p>
+                            
+                        </div>
+                        <div class="md:w-1/2">
+                            <img src="https://i.ibb.co/qFXpBJpR/wuvo.jpg" alt="技术咨询服务" class="w-full h-auto rounded-lg shadow-xl">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-md hover:bg-primary hover:text-white transition-colors" id="prevSlide">
+                <i class="fa fa-chevron-left"></i>
+            </button>
+            <button class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-md hover:bg-primary hover:text-white transition-colors" id="nextSlide">
+                <i class="fa fa-chevron-right"></i>
+            </button>
+            <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                <button class="w-3 h-3 rounded-full bg-white/50 carousel-dot active" data-index="0"></button>
+                <button class="w-3 h-3 rounded-full bg-white/50 carousel-dot" data-index="1"></button>
+                <button class="w-3 h-3 rounded-full bg-white/50 carousel-dot" data-index="2"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 公司介绍 -->
+    <section id="about" class="py-4 pt-16 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-dark mb-4">About Us</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6 rounded-full"></div>
+                <p class="text-secondary max-w-2xl mx-auto">
+                    We build world-class software, apps, and IoT systems through agile development, clear communication, and technical excellence — empowering innovation across industries.
+                </p>
+              
+              <h4 class="text-[clamp(1.8rem,4vw,1.5rem)] text-dark mb-3">Technical Expertise</h4>
+              <p class="text-secondary max-w-2xl mx-auto">
+                    Our team is proficient in a wide range of front-end, back-end, and mobile technologies:
+                </p>
+              <p class="text-secondary max-w-2xl mx-auto font-bold">                 
+•	Mobile Development: Android (Java, Kotlin), iOS (Objective-C, Swift)
+
+                </p>
+              <p class="text-secondary max-w-2xl mx-auto font-bold">
+                   
+•	Backend & Web Development: Java, PHP, .Net (C#), C++, C, ColdFusion, Ruby, Python, Vue.js, JavaScript, Solidity
+
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-purple-50 p-8 rounded-xl shadow-sm card-hover">
+                    <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa fa-lightbulb-o text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Clear Communication & Iterative Collaboration</h3>
+                    <p class="text-secondary">
+                        We emphasize clear English communication and continuous iteration — focusing not just on delivering software, but on achieving your business goals.
+                    </p>
+                </div>
+
+                <div class="bg-purple-50 p-8 rounded-xl shadow-sm card-hover">
+                    <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa fa-users text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3"> Industry Experience</h3>
+                    <p class="text-secondary">
+                        We have successfully delivered mature solutions for multiple industries including manufacturing, healthcare, and education.
+Our team understands each sector’s unique challenges and adapts our services to meet specific business needs.
+
+                    </p>
+                </div>
+
+                <div class="bg-purple-50 p-8 rounded-xl shadow-sm card-hover">
+                    <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa fa-handshake-o text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Our Commitment</h3>
+                    <p class="text-secondary">
+                        We take time to deeply understand your challenges and goals, transforming ideas into tangible results. Our professional team is ready to join your next project and help you achieve success.
+                    </p>
+                </div>
+            </div>
+          
+          <div class="text-center mb-12">
+                
+                <div class="w-20 h-1 bg-primary mx-auto mb-6 rounded-full"></div> 
+             
+                                  
+            </div>
+        </div>
+    </section>
+    <!-- service -->
+    <section id="service" class="py-4 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="mt-16 bg-purple-50 p-8 rounded-xl">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-2/3 mb-6 md:mb-0">
+                        <h3 class="text-2xl font-bold mb-4">Service</h3>
+                        <div class="space-y-4">
+                            <div class="flex">
+                                <div class="bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center mr-4">01</div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">Solution architecture & consulting</h4>
+                                    
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <div class="bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center mr-4">02</div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">Mobile App, Web, and Mini Program development</h4>
+                                    
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <div class="bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center mr-4">03</div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">UI/UX design</h4>
+                                    
+                                </div>
+                            </div>
+                          <div class="flex">
+                                <div class="bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center mr-4">04</div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">System integration and digital transformation solutions</h4>
+                                    <p class="text-secondary"></p>
+                                </div>
+                            </div>
+                            
+                        </div>
+                      
+                      
+                    <h3 class="text-xl font-bold mt-4 mb-2">Engagement Models</h3>
+                       <p class="text-secondary">We offer flexible collaboration models tailored to your business needs. </p>
+                      <p class="text-secondary mb-4">Our primary engagement models include: </p>
+                      
+                      <div  class="space-y-4">
+                        <div class="flex">
+                                <div class="bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center mr-4">01</div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">Full Project Delivery</h4>
+                                    <p class="text-secondary">We provide a professional, end-to-end team — from solution design to deployment.</p>
+                                </div>
+                            </div>
+                        <div class="flex">
+                                <div class="bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center mr-4">02</div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">Talent Outsourcing</h4>
+                                    <p class="text-secondary">We supply project managers, UI/UX designers, and developers based on your business needs</p>
+                                </div>
+                            </div>
+                        <div class="flex">
+                                <div class="bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center mr-4">03</div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">Dedicated Team Building</h4>
+                                    <p class="text-secondary">We help you build a stable, efficient development team</p>
+                                </div>
+                            </div>
+                      </div>
+                    </div>
+                    <div class="md:w-1/3 flex justify-center md:justify-end">
+                        <img src="https://i.ibb.co/8DD8h0gX/logo.jpg" alt="service" class="w-2/3 rounded-lg shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </div>
+  </section>
+    <!-- 项目成果 -->
+    <section id="projects" class="py-16 bg-light">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-dark mb-4">SUCCESS PROJECTS</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6 rounded-full"></div>
+                <p class="text-secondary max-w-2xl mx-auto">
+                    We have successfully delivered high-quality solutions for clients across various industries. Below are some of our representative accomplishments.
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden card-hover">
+                    <img src="https://i.ibb.co/pvPH9PNn/fish1.jpg" alt="企业管理系统" class="w-full h-48 object-cover">
+                  
+                 
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Saibo Smart Net Cage Data Monitoring Platform</h3>
+                        <p class="text-secondary mb-4">
+                            The Saibo Smart Net Cage Platform provides real-time monitoring, AI-driven fish growth analysis, precision feeding, and remote management, transforming aquaculture into an efficient, data-driven, and sustainable operation.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                           
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden card-hover">
+                    <img src="https://i.ibb.co/qFXpBJpR/wuvo.jpg" alt="移动电商APP" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">WUVO Spot – Find Items Easily</h3>
+                        <p class="text-secondary mb-4">
+                            The WUVO Spot, roughly the size of a coin, is a next-generation smart anti-lost device. This app was custom-developed for WUVO Inc. (USA). Attach the Spot to your keys, stick it on your laptop, or slip it into your wallet—it’s not only a sleek accessory but also ensures you’ll never lose your personal items again!
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                          <a class="text-xl bg-purple-100 text-primary underline px-2 rounded-full" href="https://thegadgetflow.com/blog/wuvospot/" target="_blank">Visit WUVO Spot</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden card-hover">
+                    <img src="https://i.ibb.co/6RMwW8zP/pr3.jpg" alt="数据分析平台" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Manufacturing Production Planning & Financial Management System</h3>
+                        <p class="text-secondary mb-4">
+                            Internal Production Planning and Financial Management System for the manufacturing industry. Automate tracking and comparison the production output and shipment volumes while supporting AOP (Annual Operating Plan) and financial budgeting processes.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                       
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-20 h-1 bg-primary mx-auto mb-6 rounded-full"></div>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden card-hover">
+                    <img src="https://i.ibb.co/Mxk5MRng/bugx.jpg" alt="bug x" class="w-full h-48 object-cover">
+                  
+                 
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">BugX</h3>
+                        <p class="text-secondary mb-4">
+                            With BugX, you can accomplish all your goals. It will bring you completely new approaches to software project planning, management, execution and bug fix, in an easy way with BugX.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <a class="text-xl bg-purple-100 text-primary underline px-2 rounded-full" href="http://www.bugx.org" target="_blank">Visit BugX</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden card-hover">
+                    <img src="https://i.ibb.co/Y7P8WNKF/led.jpg" alt="Led shoes" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">LED-Magic Shoes</h3>
+                        <p class="text-secondary mb-4">
+                            The LED-Magic Shoes integrate Bluetooth technology with a motion-sensing lighting system, allowing users to control LED flashing patterns via a smartphone app. Powered by a rechargeable lithium battery and charged through USB, this product combines LED sensing control with Bluetooth communication, creating a truly multifunctional wearable device.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                          
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 联系方式 -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-dark mb-4">CONTACT US</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6 rounded-full"></div>
+                <p class="text-secondary max-w-2xl mx-auto">
+                   Please let us know what's on your mind. Have a question for us? Ask away
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-10">
+<!--                 <div>
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-secondary mb-2">Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors" placeholder="First name & Last name">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-secondary mb-2">EMAIL</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors" placeholder="">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-secondary mb-2">MESSAGE</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors" placeholder="Please let us know what's on your mind. Have a question for us? Ask away."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-primary hover:bg-primary/90 text-white font-medium px-6 py-3 rounded-lg transition-all shadow-lg hover:shadow-primary/20">
+                            SEND
+                        </button>
+                    </form>
+                </div> -->
+
+                <div class="flex flex-col justify-center">
+                    <div class="space-y-8">
+                        <div class="flex items-start">
+                            <div class="bg-primary/10 w-10 h-10 rounded-lg flex items-center justify-center mr-4 mt-1">
+                                <i class="fa fa-map-marker text-primary"></i>
+                            </div>
+                            <div>                                              <p class="text-secondary">One Enterprise Dr NA, Quincy, MA 02171</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-primary/10 w-10 h-10 rounded-lg flex items-center justify-center mr-4 mt-1">
+                                <i class="fa fa-phone text-primary"></i>
+                            </div>
+                            <div>
+                               
+                                <p class="text-secondary">
+(857)-379-0706</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-primary/10 w-10 h-10 rounded-lg flex items-center justify-center mr-4 mt-1">
+                                <i class="fa fa-envelope text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1"></h4>
+                                <p class="text-secondary">onelinktech2021@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-primary/10 w-10 h-10 rounded-lg flex items-center justify-center mr-4 mt-1">
+                                <i class="fa fa-clock-o text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1"></h4>
+                                <p class="text-secondary">Monday to Friday 9:00-18:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-white">
+                            <img alt="Onelink Logo" fetchpriority="high" width="174" height="40" decoding="async" data-nimg="1" style="color:transparent" src="https://i.ibb.co/8DD8h0gX/logo.jpg">
+                        </div>
+                        <span class="text-xl font-bold">TechFlow</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        Building World-Class Apps, IoT & Digital Solutions Through Agile Offshore Development.
+                    </p>
+                    
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-primary transition-colors">HOME</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-primary transition-colors">SERVICE</a></li>
+                        <li><a href="#projects" class="text-gray-400 hover:text-primary transition-colors">PROJECT</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-primary transition-colors">CONTACT US</a></li>
+                    </ul>
+                </div>       
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-6 text-center text-gray-500">
+                <p>© 2025 Onelink Tech all Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换
+        document.getElementById('menuBtn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 轮播图功能
+        const carouselItems = document.querySelectorAll('.carousel-item');
+        const carouselDots = document.querySelectorAll('.carousel-dot');
+        const prevBtn = document.getElementById('prevSlide');
+        const nextBtn = document.getElementById('nextSlide');
+        let currentIndex = 0;
+        let carouselInterval;
+
+        function showSlide(index) {
+            carouselItems.forEach(item => item.classList.remove('active'));
+            carouselDots.forEach(dot => dot.classList.remove('active', 'bg-primary'));
+            carouselDots.forEach(dot => dot.classList.add('bg-white/50'));
+            
+            carouselItems[index].classList.add('active');
+            carouselDots[index].classList.add('active', 'bg-primary');
+            carouselDots[index].classList.remove('bg-white/50');
+            
+            currentIndex = index;
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % carouselItems.length;
+            showSlide(currentIndex);
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + carouselItems.length) % carouselItems.length;
+            showSlide(currentIndex);
+        }
+
+        prevBtn.addEventListener('click', prevSlide);
+        nextBtn.addEventListener('click', nextSlide);
+
+        carouselDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showSlide(index);
+                resetCarouselInterval();
+            });
+        });
+
+        function resetCarouselInterval() {
+            clearInterval(carouselInterval);
+            carouselInterval = setInterval(nextSlide, 5000);
+        }
+
+        // 自动轮播
+        carouselInterval = setInterval(nextSlide, 5000);
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    // 关闭移动菜单
+                    document.getElementById('mobileMenu').classList.add('hidden');
+                }
+            });
+        });
+
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+                navbar.classList.remove('shadow-sm');
+            } else {
+                navbar.classList.remove('shadow-md');
+                navbar.classList.add('shadow-sm');
+            }
+        });
+    </script>
+</body>
+</html>
